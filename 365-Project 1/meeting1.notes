@@ -1,0 +1,38 @@
+have things done by 23Mar (Fri)
+assume everything is lowercase
+
+
+
+Kendall:
+0000 	Exit
+		Swap
+		Input
+		Nop
+0001	Pop
+0011	Neg
+		Not
+Kendall: write
+
+
+Austin:
+0010	Add
+		Sub
+		Mul
+		Div
+		Rem
+		And
+		Or
+		Xor
+Austin: read
+
+
+Brent:
+0111	Goto
+1000    If
+1001	If
+1100	Dup
+1101	Print
+1110	Dump
+1111	Push
+Brent: change everything to lowercase
+Instruction interface - Brent - write 8Mar
