@@ -25,7 +25,7 @@ interface IInstruction
 	//in a property or a public variable so I'm just
 	//not including it here
 
-	void SetInstructionFromLine(string line);
-	void EncodeIntruction();
-	void WriteInstructionByteCode();
+	void SetInstrFromLine(string line);
+	void EncodeInstr();
+	void WriteInstrByteCode();
 }
