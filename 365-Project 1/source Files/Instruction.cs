@@ -3,7 +3,7 @@
  *   Group 1D
  *       Austin Saporito
  *       G. Brent Hurst
- *       Kendall Nicley
+ *       Kendall Nicley (*)
  *
  *   Instruction.cs
  *
