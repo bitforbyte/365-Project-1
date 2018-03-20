@@ -1,3 +1,4 @@
+//Partial Class for Kendall's Functions
 using System;
 using System.Collections.Generic;
 using _365_Project_1;
@@ -12,7 +13,7 @@ partial class Assembler
 
 	void Swap(string line)
 	{
-		Console.WriteLine("This is the Swap Functions Swap:" + line);
+		Console.WriteLine("This is from the Swap Function:" + line);
 		return;
 	}
 	void Input(string line)

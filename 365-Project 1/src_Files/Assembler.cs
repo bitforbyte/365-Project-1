@@ -4,12 +4,16 @@ using _365_Project_1;
 
 partial class Assembler
 {
-	protected List<int> lLoc;
+	//protected List<int> lLoc;
+	
+	//Delegate for each of the functions
 	protected delegate void del(string line);
+
+	//Dictionary keyed on command string and value is the approiate funciton
 	public Dictionary<string, Delegate> delDic;
 	public Assembler()
 	{
-		
+		//Assign the functions
 		delDic = new Dictionary<string, Delegate>()
 		{
 			{"exit", new del(Exit)},
