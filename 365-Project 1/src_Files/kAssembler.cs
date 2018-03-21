@@ -4,14 +4,6 @@ using System.Collections.Generic;
 using _365_Project_1;
 
 
-/*
- * KENDALL:
- * In case I forget to bring this up at the meeting,
- * does this code work if you don't reset byteVal to
- * zero everytime?
- *    -Brent
- */
-
 
 
 partial class Assembler
