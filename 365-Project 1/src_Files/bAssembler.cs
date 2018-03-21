@@ -1,4 +1,18 @@
-//Partial Class for Brent's Functions
+/**************************************************
+ *   CS365 SP18 Project1
+ *   Group 1D
+ *       Austin Saporito
+ *       G. Brent Hurst
+ *       Kendall Nicley
+ *
+ *   bAssembler.cs
+ *
+ *   Partial Class for Brent's Functions
+ *
+ *************************************************/
+
+
+
 using System;
 using System.Collections.Generic;
 using _365_Project_1;
