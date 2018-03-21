@@ -3,6 +3,17 @@ using System;
 using System.Collections.Generic;
 using _365_Project_1;
 
+
+/*
+ * KENDALL:
+ * In case I forget to bring this up at the meeting,
+ * does this code work if you don't reset byteVal to
+ * zero everytime?
+ *    -Brent
+ */
+
+
+
 partial class Assembler
 {
 	//Byte code that will be send to the file writer
@@ -28,7 +39,7 @@ partial class Assembler
 	{
 		byteVal = 1 << 56;
 		Console.WriteLine(line + " byteval: " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
-		
+
 		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
 	}
