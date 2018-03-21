@@ -12,7 +12,7 @@
  ************************************************/
 
 
-interface IInstruction
+public interface IInstruction
 {
 	string Cmd {get;}
 	string Val {get;}

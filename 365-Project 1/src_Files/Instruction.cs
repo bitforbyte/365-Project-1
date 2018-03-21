@@ -13,34 +13,34 @@
  ************************************************/
 
 
-class Instruction : IInstruction
+public class Instruction : IInstruction
 {
-	string mCmd;
-	string Cmd
+	public string mCmd;
+	public string Cmd
 	{
 		get { return mCmd; }
 	}
 
-	string mVal;
-	string Val
+	public string mVal;
+	public string Val
 	{
 		get {return mVal; }
 	}
 
-	string mLine;
-	string Line
+	public string mLine;
+	public string Line
 	{
-		get { return mStr; }
+		get { return mLine; }
 		set
 		{
-			mStr = value;
+			mLine = value;
 			//set Cmd
 			//set Val
 		}
 	}
 
-	uint mEncoded;
-	uint Encoded
+	public uint mEncoded;
+	public uint Encoded
 	{
 		get { return mEncoded; }
 		set { mEncoded = value; }
