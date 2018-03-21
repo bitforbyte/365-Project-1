@@ -28,17 +28,17 @@ partial class Assembler
 	//Unconditionally goes to the PC + (PC relative offset).
 	//PC relative offset is a signed integer that will be sign-extended in the VM.
 	//0111 PCrelativeoffset
-	void Goto(string line)
+	void Goto(Interface i)
 	{
 
 	}
 
-	void If_____(string line)
+	void If_____(Interface i)
 	{
 
 	}
 
-	void If__(string line)
+	void If__(Interface i)
 	{
 
 	}
@@ -47,7 +47,7 @@ partial class Assembler
 	//Pushes x
 	//Last 2 bits are always zero, so offset is a multiple of 4
 	//1100 StackTopRelOffset 00
-	void Dup(string line)
+	void Dup(Interface i)
 	{
 
 	}
@@ -55,7 +55,7 @@ partial class Assembler
 	//Prints the very first value of the stack (or 0 if stack is empty)
 	//Stack is left unchanged
 	//1101 0000 0000 0000 0000 0000 0000 0000
-	void Print(string line)
+	void Print(Interface i)
 	{
 
 	}
@@ -63,7 +63,7 @@ partial class Assembler
 	//Prints every value in the stack
 	//Stack is left unchanged
 	//1110 0000 0000 0000 0000 0000 0000 0000
-	void Dump(string line)
+	void Dump(Interface i)
 	{
 
 	}
@@ -75,7 +75,7 @@ partial class Assembler
 	//  Memory label's value
 	//  If no parameters are given, ValueToPush must be 0
 	//1111 ValueToPush
-	void Push(string line)
+	void Push(Interface i)
 	{
 
 	}
