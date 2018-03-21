@@ -5,7 +5,7 @@
  *       G. Brent Hurst
  *       Kendall Nicley
  *
- *   Instruction.cs
+ *   IInstruction.cs
  *
  *   Interface for each Instruction
  *
