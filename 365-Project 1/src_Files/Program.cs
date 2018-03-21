@@ -15,7 +15,10 @@ namespace _365_Project_1
 			string cmd = "swap";
 			string test = "swap info";
 
-			assem.delDic[cmd].DynamicInvoke(test);
+			foreach(var item in assem.delDic)
+			{
+				assem.delDic[item.Key].DynamicInvoke(item.Key);
+			}
 
 
         }
