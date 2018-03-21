@@ -14,10 +14,8 @@
 
 interface IInstruction
 {
-	//"pop" or "add", etc
-	//includes "set" so Brent can change to lowercase
-	string Str {get; set;}
-
-	//the ByteCode to be output for this instruction
-	uint Encoded {get;}
+	string Cmd {get;}
+	string Val {get;}
+	string Line {get; set;}
+	uint Encoded {get; set;}
 }

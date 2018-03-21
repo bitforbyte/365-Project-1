@@ -15,16 +15,34 @@
 
 class Instruction : IInstruction
 {
-	string mStr;
-	string Str
+	string mCmd;
+	string Cmd
+	{
+		get { return mCmd; }
+	}
+
+	string mVal;
+	string Val
+	{
+		get {return mVal; }
+	}
+
+	string mLine;
+	string Line
 	{
 		get { return mStr; }
-		set { mStr = value; }
+		set
+		{
+			mStr = value;
+			//set Cmd
+			//set Val
+		}
 	}
 
 	uint mEncoded;
 	uint Encoded
 	{
 		get { return mEncoded; }
+		set { mEncoded = value; }
 	}
 }
