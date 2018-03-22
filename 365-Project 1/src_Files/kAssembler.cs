@@ -30,7 +30,6 @@ partial class Assembler
 	void Swap(Instruction i)
 	{
 		byteVal = 1 << 56;
-		Console.WriteLine(line + " byteval: " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
 
 		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
@@ -41,7 +40,6 @@ partial class Assembler
 	void Input(Instruction i)
 	{
 		byteVal = 2 << 56;
-		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
 
 		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
@@ -51,7 +49,6 @@ partial class Assembler
 	void Nop(Instruction i)
 	{
 		byteVal = 3 << 56;
-		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
 		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
 	}
@@ -60,7 +57,6 @@ partial class Assembler
 	void Pop(Instruction i)
 	{
 		byteVal = 1 << 60;
-		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
 
 		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
@@ -70,7 +66,6 @@ partial class Assembler
 	void Neg(Instruction i)
 	{
 		byteVal = 3 << 60;
-		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
 		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
 	}
@@ -79,7 +74,6 @@ partial class Assembler
 	void Not(Instruction i)
 	{
 		byteVal = 49 << 56;
-		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
 		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
 	}
