@@ -49,6 +49,8 @@ public class Instruction : IInstruction
 			//set Val
 			if(words.Length > 1)
 				mVal = words[1];
+			else
+				mVal = "";
 		}
 	}
 
