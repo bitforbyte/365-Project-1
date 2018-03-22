@@ -7,7 +7,7 @@ partial class Assembler
 	//protected List<int> lLoc;
 
 	//Delegate for each of the functions
-	protected delegate void del(Interface i);
+	protected delegate void del(Instruction i);
 
 	//Dictionary keyed on command string and value is the approiate funciton
 	public Dictionary<string, Delegate> delDic;

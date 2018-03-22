@@ -5,7 +5,7 @@ using _365_Project_1;
 
 partial class Assembler
 {
-	void Add(Interface i)
+	void Add(Instruction i)
 	{
 		return;
 	}

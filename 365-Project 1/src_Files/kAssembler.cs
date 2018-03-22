@@ -14,7 +14,7 @@ partial class Assembler
 	//Exit will terminate the virtual machine
 	//The 8-bit exit code will be returned to the operating system
 	//If no exit code is specified, 0 is assumed
-	void Exit(Interface i)
+	void Exit(Instruction i)
 	{
 		byteVal = 0;
 		//TODO get exit code from line
@@ -27,7 +27,7 @@ partial class Assembler
 	//Swap will swap the topmest value on the stack with the second topmost value
 	//If there is stack is empty it will do nothing
 	//If there is onle one value on the stack, swap is similar to push 0
-	void Swap(Interface i)
+	void Swap(Instruction i)
 	{
 		byteVal = 1 << 56;
 		Console.WriteLine(line + " byteval: " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
@@ -38,7 +38,7 @@ partial class Assembler
 
 	//Inputs number from console and pushes the value onto the stack
 	//TODO Fix the name type (need to also fix name in Assemble.cs)
-	void Input(Interface i)
+	void Input(Instruction i)
 	{
 		byteVal = 2 << 56;
 		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
@@ -48,7 +48,7 @@ partial class Assembler
 	}
 
 	//Nop is a "no operation" instruction and does nothing but move the program counter
-	void Nop(Interface i)
+	void Nop(Instruction i)
 	{
 		byteVal = 3 << 56;
 		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
@@ -57,7 +57,7 @@ partial class Assembler
 	}
 
 	//Pop will move the stack pointer down(to higher memory address)
-	void Pop(Interface i)
+	void Pop(Instruction i)
 	{
 		byteVal = 1 << 60;
 		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
@@ -67,7 +67,7 @@ partial class Assembler
 	}
 
 	//Pops a value, negates it, and pushes the result
-	void Neg(Interface i)
+	void Neg(Instruction i)
 	{
 		byteVal = 3 << 60;
 		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
@@ -76,7 +76,7 @@ partial class Assembler
 	}
 
 	//Not function that will pop value, logically nots it, and pushes the result
-	void Not(Interface i)
+	void Not(Instruction i)
 	{
 		byteVal = 49 << 56;
 		Console.WriteLine(line + " byteval:  " + Convert.ToString(byteVal, 2).PadLeft(32, '0'));
