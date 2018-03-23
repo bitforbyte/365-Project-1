@@ -33,8 +33,16 @@ partial class Assembler
 			{"neg", new del(Neg)},
 			{"not", new del(Not)},
 			//{"goto", new del(Goto)},
-			//{"if1", new del(If1)},
-			//{"if2", new del(If2)},
+			//{"ifeq", new del(Ifeq)},
+			//{"ifne", new del(Ifne)},
+			//{"iflt", new del(Iflt)},
+			//{"ifgt", new del(Ifgt)},
+			//{"ifle", new del(Ifle)},
+			//{"ifge", new del(Ifge)},
+			//{"ifez", new del(Ifez)},
+			//{"ifnz", new del(Ifnz)},
+			//{"ifmi", new del(Ifmi)},
+			//{"ifpl", new del(Ifpl)},
 			//{"dup", new del(Dup)},
 			//{"print", new del(Print)},
 			//{"dump", new del(Dump)},
@@ -42,9 +50,9 @@ partial class Assembler
 
 		};
 	}
-	
+
 	//Writer that will write to the file using a binary writer
-	//by iterating thorugh a list of Interfaces that will contain the 
+	//by iterating thorugh a list of Interfaces that will contain the
 	//value to be written
 	public void Writer(List<Instruction> ins)
 	{
@@ -54,7 +62,7 @@ partial class Assembler
 			//TODO figure out which line needs to be used "because endian could switch the order"
 			bw.Write(0xfeedbeef);
 			//bw.Write(0xefbeedfe); Likely not needed
-			
+
 			//Iterate through the list of interfaces and write the encoded value
 			foreach(Instruction item in ins)
 			{bw.Write(item.Encoded);}
