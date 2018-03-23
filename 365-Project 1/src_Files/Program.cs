@@ -10,14 +10,21 @@ namespace _365_Project_1
 {
 	class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			List<Instruction>Ilist;
 			Assembler assem = new Assembler();
 			string cmd = "swap";
 			string test = "swap info";
 			Program pro=new Program();
+			if(args.Length==0)
+			{
+				Console.WriteLine("Give file as an arg");
+				return;
+			}
+
 			Ilist=pro.reader(args[0]);
+
 			foreach(var i in Ilist)
 			{
 				assem.delDic[i.Cmd].DynamicInvoke(i);
@@ -34,7 +41,7 @@ namespace _365_Project_1
 				using (var read=new StreamReader(File.OpenRead(file))){
 					while((line=read.ReadLine())!=null){
 						if(line.StartsWith("//")||line==string.Empty||line.StartsWith("#")){
-						
+
 						}else if(line.EndsWith(":")){
 							Label la=new Label();
 							la.labelName=line;
