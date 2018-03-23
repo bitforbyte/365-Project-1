@@ -36,13 +36,13 @@ namespace _365_Project_1
 						if(line.StartsWith("//")||line==string.Empty||line.StartsWith("#")){
 							//skip
 						}else if(line.EndsWith(":")&&addr!=0){
-							addr+=4;
 							Label la=new Label();
 							la.labelName=line;
 							la.Addr=addr;
 							dic.Add(la,line);
 							Console.WriteLine(line);
 							Console.WriteLine(addr);
+						//	addr+=4;
 						}else{
 							addr+=4;
 						}
