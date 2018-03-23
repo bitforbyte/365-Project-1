@@ -28,7 +28,7 @@ namespace _365_Project_1
 			string line,label;
 			uint addr=0;
 			List<Instruction>Ilist=new List<Instruction>();
-			Dictionary<Label,string> dic=new Dictionary<Label,string>();;
+			Dictionary<string,Label> dic=new Dictionary<Label,string>();;
 
 			if(File.Exists(file)){
 				using (var read=new StreamReader(File.OpenRead(file))){
@@ -39,10 +39,9 @@ namespace _365_Project_1
 							Label la=new Label();
 							la.labelName=line;
 							la.Addr=addr;
-							dic.Add(la,line);
+							dic.Add(line,la);
 							Console.WriteLine(line);
 							Console.WriteLine(addr);
-						//	addr+=4;
 						}else{
 							addr+=4;
 						}
@@ -57,6 +56,9 @@ namespace _365_Project_1
 						}else{
 							Instruction inter= new Instruction();
 							inter.Line=line;
+						/*	if(dic.ContainsKey()){
+								///set value here
+							}*/
 							Ilist.Add(inter);
 						//	Console.WriteLine(inter.Val);
 						}
