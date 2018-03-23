@@ -12,6 +12,7 @@
  *
  ************************************************/
 
+using _365_Project_1;
 
 public class Instruction : IInstruction
 {
@@ -34,8 +35,22 @@ public class Instruction : IInstruction
 		set
 		{
 			mLine = value;
+
+			//change to lower case
+			for(i=0; i<mLine.Length; i++)
+				if(mLine[i]>='A' && mLine[i]<='Z')
+					mLine[i] += ('a' - 'A');
+
 			//set Cmd
+			char[] delims = {' '};
+			string[] words = mLine.Split(delims,StringSplitOptions.RemoveEmptyEntries);
+			mCmd = words[0];
+
 			//set Val
+			if(words.Length > 1)
+				mVal = words[1];
+			else
+				mVal = "";
 		}
 	}
 

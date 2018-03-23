@@ -11,6 +11,7 @@
  *
  ************************************************/
 
+using _365_Project_1;
 
 public interface IInstruction
 {

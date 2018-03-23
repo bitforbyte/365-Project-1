@@ -1,13 +1,14 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using _365_Project_1;
 
 partial class Assembler
 {
 	//protected List<int> lLoc;
-	
+
 	//Delegate for each of the functions
-	protected delegate void del(string line);
+	protected delegate void del(Instruction i);
 
 	//Dictionary keyed on command string and value is the approiate funciton
 	public Dictionary<string, Delegate> delDic;
@@ -20,6 +21,7 @@ partial class Assembler
 			{"swap", new del(Swap)},
 			{"nop", new del(Nop)},
 			{"pop", new del(Pop)},
+			{"inpt", new del(Inpt)},
 			//{"add", new del(Add)},
 			//{"sub", new del(Sub)},
 			//{"mul", new del(Mul)},
@@ -37,8 +39,27 @@ partial class Assembler
 			//{"print", new del(Print)},
 			//{"dump", new del(Dump)},
 			//{"push", new del(Push)},
-			
+
 		};
+	}
+	
+	//Writer that will write to the file using a binary writer
+	//by iterating thorugh a list of Interfaces that will contain the 
+	//value to be written
+	public void Writer(List<Instruction> ins)
+	{
+
+		using (BinaryWriter bw = new BinaryWriter(File.Open("Output.asm", FileMode.Create)))
+		{
+			//TODO figure out which line needs to be used "because endian could switch the order"
+			bw.Write(0xfeedbeef);
+			//bw.Write(0xefbeedfe); Likely not needed
+			
+			//Iterate through the list of interfaces and write the encoded value
+			foreach(Instruction item in ins)
+			{bw.Write(item.Encoded);}
+		}
+
 	}
 
 }
