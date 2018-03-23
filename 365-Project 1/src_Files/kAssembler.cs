@@ -34,7 +34,7 @@ partial class Assembler
 	//If there is onle one value on the stack, swap is similar to push 0
 	void Swap(Instruction i)
 	{
-		byteVal = 1 << 56;
+		byteVal = 1 << 24;
 
 		i.Encoded = byteVal;
 		return;
@@ -43,7 +43,7 @@ partial class Assembler
 	//Inputs number from console and pushes the value onto the stack
 	void Inpt(Instruction i)
 	{
-		byteVal = 2 << 56;
+		byteVal = 2 << 24;
 
 		i.Encoded = byteVal;
 		return;
@@ -52,7 +52,7 @@ partial class Assembler
 	//Nop is a "no operation" instruction and does nothing but move the program counter
 	void Nop(Instruction i)
 	{
-		byteVal = 3 << 56;
+		byteVal = 3 << 24;
 		i.Encoded = byteVal;
 		return;
 	}
@@ -60,7 +60,7 @@ partial class Assembler
 	//Pop will move the stack pointer down(to higher memory address)
 	void Pop(Instruction i)
 	{
-		byteVal = 1 << 60;
+		byteVal = 1 << 28;
 		i.Encoded = byteVal;
 
 		return;
@@ -69,7 +69,7 @@ partial class Assembler
 	//Pops a value, negates it, and pushes the result
 	void Neg(Instruction i)
 	{
-		byteVal = 3 << 60;
+		byteVal = 3 << 28;
 		i.Encoded = byteVal;
 		return;
 	}
@@ -77,7 +77,7 @@ partial class Assembler
 	//Not function that will pop value, logically nots it, and pushes the result
 	void Not(Instruction i)
 	{
-		byteVal = 49 << 56;
+		byteVal = 49 << 24;
 		i.Encoded = byteVal;
 		return;
 	}
