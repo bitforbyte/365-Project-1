@@ -22,10 +22,11 @@ public class Instruction : IInstruction
 		get { return mCmd; }
 	}
 
-	public string mVal;
-	public string Val
+	public uint mVal;
+	public uint Val
 	{
-		get {return mVal; }
+		get {return mVal;}
+		set {mVal = value;}
 	}
 
 	public string mLine;
@@ -42,10 +43,22 @@ public class Instruction : IInstruction
 			mCmd = words[0];
 
 			//set Val
+			mVal = 0;
 			if(words.Length > 1)
-				mVal = words[1];
-			else
-				mVal = "";
+			{
+				string s = words[1];
+				try
+				{
+					if(s.Length>1 && s[0]=='0' && s[1]=='x')
+						mVal = (uint) Int32.Parse(s.Substring(2,s.Length-2),System.Globalization.NumberStyles.HexNumber);
+					else
+						mVal = (uint) Int32.Parse(s);
+				}
+				catch
+				{
+					mVal = 0;
+				}
+			}
 		}
 	}
 

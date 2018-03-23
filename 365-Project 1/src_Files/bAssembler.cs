@@ -17,14 +17,11 @@
  *
  *************************************************/
 
-//HOW DO I FIND STACK RELATIVE OFFSET
-
-
+//HOW DO I FIND PC AND STACK RELATIVE OFFSET
 
 using System;
 using System.Collections.Generic;
 using _365_Project_1;
-
 
 
 partial class Assembler
@@ -34,77 +31,76 @@ partial class Assembler
 	//0111 PCrelativeoffset
 	void Goto(Instruction i)
 	{
-
+		//TODO
 	}
 
 	void Ifeq(Instruction i)
 	{
-		i.Encoded = 8 << 28;
-		i.Encoded |= 0 << 24;
-
-		//TODO
+		i.Encoded = (uint) 8 << 28;
+		i.Encoded |= (uint) 0 << 24;
+		i.Encoded |= i.Val;
 	}
 
 	void Ifne(Instruction i)
 	{
-		i.Encoded = 8 << 28;
-		i.Encoded |= 1 << 24;
+		i.Encoded = (uint) 8 << 28;
+		i.Encoded |= (uint) 1 << 24;
 		//TODO
 	}
 
 	void Iflt(Instruction i)
 	{
-		i.Encoded = 8 << 28;
-		i.Encoded |= 2 << 24;
+		i.Encoded = (uint) 8 << 28;
+		i.Encoded |= (uint) 2 << 24;
 		//TODO
 	}
 
 	void Ifgt(Instruction i)
 	{
-		i.Encoded = 8 << 28;
-		i.Encoded |= 3 << 24;
+		i.Encoded = (uint) 8 << 28;
+		i.Encoded |= (uint) 3 << 24;
 		//TODO
 	}
 
 	void Ifle(Instruction i)
 	{
-		i.Encoded = 8 << 28;
-		i.Encoded |= 4 << 24;
+		i.Encoded = (uint) 8 << 28;
+		i.Encoded |= (uint) 4 << 24;
 		//TODO
 	}
 
 	void Ifge(Instruction i)
 	{
-		i.Encoded = 8 << 28;
-		i.Encoded |= 5 << 24;
+		i.Encoded = (uint) 8 << 28;
+		i.Encoded |= (uint) 5 << 24;
 		//TODO
 	}
 
 	void Ifez(Instruction i)
 	{
-		i.Encoded = 9 << 28;
-		i.Encoded |= 0 << 24;
+		i.Encoded = (uint) 9 << 28;
+		i.Encoded |= (uint) 0 << 24;
 		//TODO
 	}
 
 	void Ifnz(Instruction i)
 	{
-		i.Encoded = 9 << 28;
-		i.Encoded |= 1 << 24;
+		i.Encoded = (uint) 9 << 28;
+		i.Encoded |= (uint) 1 << 24;
 		//TODO
 	}
 
 	void Ifmi(Instruction i)
 	{
-		i.Encoded = 9 << 28;
-		i.Encoded |= 2 << 24;
+		i.Encoded = (uint) 9 << 28;
+		i.Encoded |= (uint) 2 << 24;
 		//TODO
 	}
 
 	void Ifpl(Instruction i)
 	{
-		i.Encoded = 9 << 28;
-		i.Encoded |= 3 << 24;
+		i.Encoded = (uint) 9 << 28;
+		i.Encoded |= (uint) 3 << 24;
 		//TODO
 	}
 
@@ -116,7 +112,7 @@ partial class Assembler
 	//1100 StackTopRelOffset 00
 	void Dup(Instruction i)
 	{
-
+		//TODO
 	}
 
 	//Prints the very first value of the stack (or 0 if stack is empty)
@@ -124,7 +120,7 @@ partial class Assembler
 	//1101 0000 0000 0000 0000 0000 0000 0000
 	void Print(Instruction i)
 	{
-		i.Encoded = 13 << 28;
+		i.Encoded = (uint) 13 << 28;
 	}
 
 	//Prints every value in the stack
@@ -132,7 +128,7 @@ partial class Assembler
 	//1110 0000 0000 0000 0000 0000 0000 0000
 	void Dump(Instruction i)
 	{
-		i.Encoded = 14 << 28;
+		i.Encoded = (uint) 14 << 28;
 	}
 
 	//Pushes the value to the top of the stack
@@ -144,16 +140,7 @@ partial class Assembler
 	//1111 ValueToPush
 	void Push(Instruction i)
 	{
-		i.Encoded = 15 << 28;
-		if(i.Val.Length==0)
-			return;
-		else if(i.Val[0]=='0' && i.Val[1]=='x')
-			i.Encoded |= Int32.Parse(i.Val.Substring(2,i.Val.Length-2),System.Globalization.NumberStyles.HexNumber);
-		else
-		{
-			try { i.Encoded |= Int32.Parse(i.Val); }
-			catch { //TODO memory label address
-			}
-		}
+		i.Encoded = (uint) 15 << 28;
+		i.Encoded |= i.Val;
 	}
 }

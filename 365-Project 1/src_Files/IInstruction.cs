@@ -16,7 +16,7 @@ using _365_Project_1;
 public interface IInstruction
 {
 	string Cmd {get;}
-	string Val {get;}
+	uint Val {get; set;}
 	string Line {get; set;}
 	uint Encoded {get; set;}
 }
