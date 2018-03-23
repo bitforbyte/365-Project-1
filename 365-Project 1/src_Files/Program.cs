@@ -28,7 +28,7 @@ namespace _365_Project_1
 			string line,label;
 			uint addr=0;
 			List<Instruction>Ilist=new List<Instruction>();
-			Dictionary<Instruction,string> dic;
+			Dictionary<Label,string> dic=new Dictionary<Label,string>();;
 
 		if(File.Exists(file)){
             using (var read=new StreamReader(File.OpenRead(file))){
