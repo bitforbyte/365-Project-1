@@ -34,14 +34,8 @@ public class Instruction : IInstruction
 		get { return mLine; }
 		set
 		{
-			mLine = value;
-			//change to lower case
-			mLine=mLine.ToLower();
-/*			int i;
-			for(i=0; i<mLine.Length; i++)
-				if(mLine[i]>='A' && mLine[i]<='Z')
-					mLine[i] += ('a' - 'A');
-*/
+			mLine = value.ToLower();
+
 			//set Cmd
 			char[] delims = {' '};
 			string[] words = mLine.Split(delims,StringSplitOptions.RemoveEmptyEntries);
