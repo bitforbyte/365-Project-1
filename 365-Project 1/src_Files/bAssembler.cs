@@ -7,19 +7,23 @@
  *
  *   bAssembler.cs
  *
- *   Partial Class for Brent's Functions
+ *   Partial Class for Brent's Functions:
+ *   GoTo()
+ *   If()
+ *   Dup()
+ *   Print()
+ *   Dump()
+ *   Push()
  *
  *************************************************/
+
+//HOW DO I FIND STACK RELATIVE OFFSET
 
 
 
 using System;
 using System.Collections.Generic;
 using _365_Project_1;
-
-
-
-//Brent: change everything to lowercase
 
 
 
@@ -33,15 +37,78 @@ partial class Assembler
 
 	}
 
-	void If_____(Instruction i)
+	void Ifeq(Instruction i)
 	{
+		i.Encoded = 8 << 28;
+		i.Encoded |= 0 << 24;
 
+		//TODO
 	}
 
-	void If__(Instruction i)
+	void Ifne(Instruction i)
 	{
-
+		i.Encoded = 8 << 28;
+		i.Encoded |= 1 << 24;
+		//TODO
 	}
+
+	void Iflt(Instruction i)
+	{
+		i.Encoded = 8 << 28;
+		i.Encoded |= 2 << 24;
+		//TODO
+	}
+
+	void Ifgt(Instruction i)
+	{
+		i.Encoded = 8 << 28;
+		i.Encoded |= 3 << 24;
+		//TODO
+	}
+
+	void Ifle(Instruction i)
+	{
+		i.Encoded = 8 << 28;
+		i.Encoded |= 4 << 24;
+		//TODO
+	}
+
+	void Ifge(Instruction i)
+	{
+		i.Encoded = 8 << 28;
+		i.Encoded |= 5 << 24;
+		//TODO
+	}
+
+	void Ifez(Instruction i)
+	{
+		i.Encoded = 9 << 28;
+		i.Encoded |= 0 << 24;
+		//TODO
+	}
+
+	void Ifnz(Instruction i)
+	{
+		i.Encoded = 9 << 28;
+		i.Encoded |= 1 << 24;
+		//TODO
+	}
+
+	void Ifmi(Instruction i)
+	{
+		i.Encoded = 9 << 28;
+		i.Encoded |= 2 << 24;
+		//TODO
+	}
+
+	void Ifpl(Instruction i)
+	{
+		i.Encoded = 9 << 28;
+		i.Encoded |= 3 << 24;
+		//TODO
+	}
+
+
 
 	//Peeks x = *(sp+offset)
 	//Pushes x
@@ -57,7 +124,7 @@ partial class Assembler
 	//1101 0000 0000 0000 0000 0000 0000 0000
 	void Print(Instruction i)
 	{
-
+		i.Encoded = 13 << 28;
 	}
 
 	//Prints every value in the stack
@@ -65,7 +132,7 @@ partial class Assembler
 	//1110 0000 0000 0000 0000 0000 0000 0000
 	void Dump(Instruction i)
 	{
-
+		i.Encoded = 14 << 28;
 	}
 
 	//Pushes the value to the top of the stack
@@ -77,6 +144,16 @@ partial class Assembler
 	//1111 ValueToPush
 	void Push(Instruction i)
 	{
-
+		i.Encoded = 15 << 28;
+		if(i.Val.Length==0)
+			return;
+		else if(i.Val[0]=='0' && i.Val[1]=='x')
+			i.Encoded |= Int32.Parse(i.Val.Substring(2,i.Val.Length-2),System.Globalization.NumberStyles.HexNumber);
+		else
+		{
+			try { i.Encoded |= Int32.Parse(i.Val); }
+			catch { //TODO memory label address
+			}
+		}
 	}
 }
