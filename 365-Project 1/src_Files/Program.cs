@@ -34,8 +34,8 @@ namespace _365_Project_1
 				using (var read=new StreamReader(File.OpenRead(file))){
 					while((line=read.ReadLine())!=null){
 						if(line.StartsWith("//")||line==string.Empty||line.StartsWith("#")){
-							//skip
-						}else if(line.EndsWith(":")&&addr!=0){
+						
+						}else if(line.EndsWith(":")){
 							Label la=new Label();
 							la.labelName=line;
 							la.Addr=addr;
@@ -58,7 +58,7 @@ namespace _365_Project_1
 							Instruction inter= new Instruction();
 							inter.Line=line;
 							Ilist.Add(inter);
-							Console.WriteLine(inter.Val);
+						//	Console.WriteLine(inter.Val);
 						}
 
 					}
