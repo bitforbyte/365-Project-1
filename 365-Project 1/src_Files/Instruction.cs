@@ -11,7 +11,7 @@
  *   Inherits IInstruction.
  *
  ************************************************/
-
+using System;
 using _365_Project_1;
 
 public class Instruction : IInstruction
@@ -35,12 +35,13 @@ public class Instruction : IInstruction
 		set
 		{
 			mLine = value;
-
 			//change to lower case
+			mLine=mLine.ToLower();
+/*			int i;
 			for(i=0; i<mLine.Length; i++)
 				if(mLine[i]>='A' && mLine[i]<='Z')
 					mLine[i] += ('a' - 'A');
-
+*/
 			//set Cmd
 			char[] delims = {' '};
 			string[] words = mLine.Split(delims,StringSplitOptions.RemoveEmptyEntries);
