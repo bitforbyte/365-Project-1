@@ -31,7 +31,8 @@ partial class Assembler
 	//0111 PCrelativeoffset
 	void Goto(Instruction i)
 	{
-		//TODO
+		i.Encoded = 7 << 28;
+		i.Encoded |= i.Val;
 	}
 
 	void Ifeq(Instruction i)
@@ -45,63 +46,63 @@ partial class Assembler
 	{
 		i.Encoded = (uint) 8 << 28;
 		i.Encoded |= (uint) 1 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Iflt(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
 		i.Encoded |= (uint) 2 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Ifgt(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
 		i.Encoded |= (uint) 3 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Ifle(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
 		i.Encoded |= (uint) 4 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Ifge(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
 		i.Encoded |= (uint) 5 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Ifez(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
 		i.Encoded |= (uint) 0 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Ifnz(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
 		i.Encoded |= (uint) 1 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Ifmi(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
 		i.Encoded |= (uint) 2 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 	void Ifpl(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
 		i.Encoded |= (uint) 3 << 24;
-		//TODO
+		i.Encoded |= i.Val;
 	}
 
 
@@ -112,7 +113,8 @@ partial class Assembler
 	//1100 StackTopRelOffset 00
 	void Dup(Instruction i)
 	{
-		//TODO
+		i.Encoded = (uint) 12 << 28;
+		i.Encoded |= (uint) i.Val << 2;
 	}
 
 	//Prints the very first value of the stack (or 0 if stack is empty)
