@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using _365_Project_1;
 
-
-
-
 partial class Assembler
 {
 	//Byte code that will be send to the file writer
@@ -16,10 +13,18 @@ partial class Assembler
 	//If no exit code is specified, 0 is assumed
 	void Exit(Instruction i)
 	{
+		byte exCode;
 		byteVal = 0;
-		//TODO get exit code from line
 
-		//TODO send bytecode to binary writer: WriteCode(byteCode);
+		//Get the exit code with error checking
+		try
+		{ 
+			exCode = Convert.ToByte(i.Val); 
+			i.Encoded = (byteVal | exCode);
+		}
+		catch
+		{ Console.WriteLine("Exit Code Bad Format: '{0}'", i.Val); }
+
 
 		return;
 	}
@@ -31,17 +36,16 @@ partial class Assembler
 	{
 		byteVal = 1 << 56;
 
-		//TODO send bytecode to binary writer: WriteCode(byteCode);
+		i.Encoded = byteVal;
 		return;
 	}
 
 	//Inputs number from console and pushes the value onto the stack
-	//TODO Fix the name type (need to also fix name in Assemble.cs)
-	void Input(Instruction i)
+	void Inpt(Instruction i)
 	{
 		byteVal = 2 << 56;
 
-		//TODO send bytecode to binary writer: WriteCode(byteCode);
+		i.Encoded = byteVal;
 		return;
 	}
 
@@ -49,7 +53,7 @@ partial class Assembler
 	void Nop(Instruction i)
 	{
 		byteVal = 3 << 56;
-		//TODO send bytecode to binary writer: WriteCode(byteCode);
+		i.Encoded = byteVal;
 		return;
 	}
 
@@ -57,8 +61,8 @@ partial class Assembler
 	void Pop(Instruction i)
 	{
 		byteVal = 1 << 60;
+		i.Encoded = byteVal;
 
-		//TODO send bytecode to binary writer: WriteCode(byteCode);
 		return;
 	}
 
@@ -66,7 +70,7 @@ partial class Assembler
 	void Neg(Instruction i)
 	{
 		byteVal = 3 << 60;
-		//TODO send bytecode to binary writer: WriteCode(byteCode);
+		i.Encoded = byteVal;
 		return;
 	}
 
@@ -74,7 +78,7 @@ partial class Assembler
 	void Not(Instruction i)
 	{
 		byteVal = 49 << 56;
-		//TODO send bytecode to binary writer: WriteCode(byteCode);
+		i.Encoded = byteVal;
 		return;
 	}
 }
