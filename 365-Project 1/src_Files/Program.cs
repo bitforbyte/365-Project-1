@@ -26,8 +26,10 @@ namespace _365_Project_1
 			Ilist=pro.reader(args[0]);
 
 			foreach(var i in Ilist)
-			{
+			{	
+				if(!i.Cmd.EndsWith(":")){
 				assem.delDic[i.Cmd].DynamicInvoke(i);
+				}
 			}
 
 		}
@@ -48,8 +50,6 @@ namespace _365_Project_1
 							la.labelName=line1;
 							la.Addr=addr;
 							dic.Add(line1,la);
-						//	Console.WriteLine(line);
-						//	Console.WriteLine(addr);
 						}else{
 							addr+=4;
 						}
@@ -64,21 +64,16 @@ namespace _365_Project_1
 						}else{
 							Instruction inter= new Instruction();
 							inter.Line=line;
-						//	Console.WriteLine(inter.Cmd);
 							string[] words = line.Split(delims,StringSplitOptions.RemoveEmptyEntries);	
 							lab="";
-						//	Console.WriteLine(words[0]);
 							if(words.Length>1){
 								lab=words[1];
-								lab.Trim();
 								lab+=":";
 							}
-					//		Console.WriteLine(lab);
 							if(dic.ContainsKey(lab)){
-								Console.WriteLine(lab);
+								inter.Val=dic[lab].Addr;
 							}
 							Ilist.Add(inter);
-						//	Console.WriteLine(inter.Val);
 						}
 
 					}
@@ -86,8 +81,5 @@ namespace _365_Project_1
 			}
 			return Ilist;
 		}
-
-
-
 	}
 }
