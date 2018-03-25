@@ -23,6 +23,7 @@ partial class Assembler
 
 	//Delegate for each of the functions
 	protected delegate void del(Instruction i);
+//	public delegate void del1(ref Instruction i);
 
 	//Dictionary keyed on command string and value is the approiate funciton
 	public Dictionary<string, Delegate> delDic;

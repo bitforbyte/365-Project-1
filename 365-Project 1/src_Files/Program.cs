@@ -31,9 +31,9 @@ namespace _365_Project_1
 			string test = "swap info";
 			Program pro=new Program();
 
-			if(args.Length==0)
+			if(args.Length<2)
 			{
-				Console.WriteLine("Give file as an arg");
+				Console.WriteLine("Give file and a file name to write to as an arg");
 				return;
 			}
 
@@ -49,6 +49,13 @@ namespace _365_Project_1
 			}
 
 			//Write out the Encoded of each instruction
+					using (System.IO.BinaryWriter file =
+							new System.IO.BinaryWriter(File.OpenWrite(args[1])))
+					{
+						Ilist.ForEach(o=>{
+								file.Write(o.Encoded);
+								});
+					}
 
 		}
 
