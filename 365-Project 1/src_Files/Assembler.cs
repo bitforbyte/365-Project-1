@@ -69,10 +69,12 @@ partial class Assembler
 	//Writer that will write to the file using a binary writer
 	//by iterating thorugh a list of Interfaces that will contain the
 	//value to be written
-	public void Writer(List<Instruction> ins)
+	public void Writer(string file, List<Instruction> ins)
 	{
-
-		using (BinaryWriter bw = new BinaryWriter(File.Open("Output.asm", FileMode.Create)))
+		var fileName = Path.ChangeExtension(file, ".bin");
+		
+		//if (Test.RegularExpressions.Regex.IsMatch(fileName, "\\."))
+		using (BinaryWriter bw = new BinaryWriter(File.Open(fileName,FileMode.Create)))
 		{
 			uint val;
 			//TODO figure out which line needs to be used "because endian could switch the order"

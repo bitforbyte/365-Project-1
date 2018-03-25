@@ -27,8 +27,6 @@ namespace _365_Project_1
 		{
 			List<Instruction>Ilist;
 			Assembler assem = new Assembler();
-			string cmd = "swap";
-			string test = "swap info";
 			Program pro=new Program();
 
 			if(args.Length<1)
@@ -43,21 +41,12 @@ namespace _365_Project_1
 			//set i.Encoded for each i in Ilist
 			foreach(var i in Ilist)
 			{
-				//if(!i.Cmd.EndsWith(":")){
-					assem.delDic[i.Cmd].DynamicInvoke(i);
-				//}
+				assem.delDic[i.Cmd].DynamicInvoke(i);
 			}
-			assem.Writer(Ilist);
+			
+			//Write to the writer to make the file and write the instructions to it
+			assem.Writer(args[0], Ilist);
 
-			/*
-			//Write out the Encoded of each instruction
-					using (System.IO.BinaryWriter file =
-							new System.IO.BinaryWriter(File.OpenWrite(args[1])))
-					{
-						Ilist.ForEach(o=>{
-								file.Write(o.Encoded);
-								});
-					}*/
 
 		}
 
