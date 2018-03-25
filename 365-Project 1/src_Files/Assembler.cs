@@ -1,3 +1,17 @@
+/**************************************************
+ *   CS365 SP18 Project1
+ *   Group 1D
+ *       Austin Saporito
+ *       G. Brent Hurst
+ *       Kendall Nicley
+ *
+ *   Assembler.cs
+ *
+ *   Partial Class that creates a dictionary of
+ *   our functions and writes out the bytecode.
+ *
+ *************************************************/
+
 using System;
 using System.IO;
 using System.Collections.Generic;

@@ -1,4 +1,23 @@
-//Partial Class for Kendall's Functions
+/**************************************************
+ *   CS365 SP18 Project1
+ *   Group 1D
+ *       Austin Saporito
+ *       G. Brent Hurst
+ *       Kendall Nicley
+ *
+ *   kAssembler.cs
+ *
+ *   Partial Class for Brent's Functions:
+ *   Exit()
+ *   Swap()
+ *   Inpt()
+ *   Nop()
+ *   Pop()
+ *   Neg()
+ *   Not()
+ *
+ *************************************************/
+
 using System;
 using System.Collections.Generic;
 using _365_Project_1;
@@ -18,8 +37,8 @@ partial class Assembler
 
 		//Get the exit code with error checking
 		try
-		{ 
-			exCode = Convert.ToByte(i.Val); 
+		{
+			exCode = Convert.ToByte(i.Val);
 			i.Encoded = (byteVal | exCode);
 		}
 		catch

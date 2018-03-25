@@ -13,6 +13,7 @@
 
 using _365_Project_1;
 
+//self-explanatory
 public interface Ilabel
 {
     string labelName {get; set;}

@@ -11,23 +11,23 @@
  *   Inherits ILabel.
  *
  ************************************************/
+
 using System;
 using _365_Project_1;
 
+//self-explanatory
 public class Label : Ilabel
 {
-
 	public string mlabel;
 	public string labelName{
 		get{ return mlabel; }
-		
 		set{ mlabel=value; }
 
 	}
+
 	public uint maddr;
 	public uint Addr{
 		get{ return maddr; }
 		set{ maddr = value; }
 	}
-
 }

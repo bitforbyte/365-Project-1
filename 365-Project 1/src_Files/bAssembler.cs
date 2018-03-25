@@ -9,15 +9,13 @@
  *
  *   Partial Class for Brent's Functions:
  *   GoTo()
- *   If()
+ *   If..()
  *   Dup()
  *   Print()
  *   Dump()
  *   Push()
  *
  *************************************************/
-
-//HOW DO I FIND PC AND STACK RELATIVE OFFSET
 
 using System;
 using System.Collections.Generic;
@@ -35,6 +33,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks left and right from stack
+	//If left (COND) right, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1000 0000 PCrelativeoffset
+	//==
 	void Ifeq(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
@@ -42,6 +45,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks left and right from stack
+	//If left (COND) right, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1000 0001 PCrelativeoffset
+	//!=
 	void Ifne(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
@@ -49,6 +57,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks left and right from stack
+	//If left (COND) right, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1000 0010 PCrelativeoffset
+	//<
 	void Iflt(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
@@ -56,6 +69,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks left and right from stack
+	//If left (COND) right, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1000 0011 PCrelativeoffset
+	//>
 	void Ifgt(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
@@ -63,6 +81,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks left and right from stack
+	//If left (COND) right, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1000 0100 PCrelativeoffset
+	//<=
 	void Ifle(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
@@ -70,6 +93,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks left and right from stack
+	//If left (COND) right, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1000 0101 PCrelativeoffset
+	//>=
 	void Ifge(Instruction i)
 	{
 		i.Encoded = (uint) 8 << 28;
@@ -77,6 +105,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks value from stack
+	//If left (COND) 0, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1001 0000 PCrelativeoffset
+	//==0
 	void Ifez(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
@@ -84,6 +117,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks value from stack
+	//If left (COND) 0, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1001 0001 PCrelativeoffset
+	//!=0
 	void Ifnz(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
@@ -91,6 +129,11 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks value from stack
+	//If left (COND) 0, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1001 0010 PCrelativeoffset
+	//<0
 	void Ifmi(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
@@ -98,14 +141,17 @@ partial class Assembler
 		i.Encoded |= i.Val;
 	}
 
+	//Peeks value from stack
+	//If left (COND) 0, then goto (PCRelativeOffset)
+	//Else Do Nothing
+	//1001 0011 PCrelativeoffset
+	//>=0
 	void Ifpl(Instruction i)
 	{
 		i.Encoded = (uint) 9 << 28;
 		i.Encoded |= (uint) 3 << 24;
 		i.Encoded |= i.Val;
 	}
-
-
 
 	//Peeks x = *(sp+offset)
 	//Pushes x

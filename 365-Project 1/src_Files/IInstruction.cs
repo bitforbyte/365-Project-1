@@ -15,8 +15,15 @@ using _365_Project_1;
 
 public interface IInstruction
 {
+	//the first word of an instruction line
 	string Cmd {get;}
+
+	//the second word of an instruction line, else 0
 	uint Val {get; set;}
+
+	//an instruction line
 	string Line {get; set;}
+
+	//the bytecode to be output
 	uint Encoded {get; set;}
 }

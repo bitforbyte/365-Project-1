@@ -1,4 +1,16 @@
-﻿//
+﻿/**************************************************
+ *   CS365 SP18 Project1
+ *   Group 1D
+ *       Austin Saporito
+ *       G. Brent Hurst
+ *       Kendall Nicley
+ *
+ *   Program.cs
+ *
+ *   DESCRIPTION
+ *
+ *************************************************/
+
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -10,6 +22,7 @@ namespace _365_Project_1
 {
 	class Program
 	{
+		//Entry point
 		public static void Main(string[] args)
 		{
 			List<Instruction>Ilist;
@@ -26,7 +39,7 @@ namespace _365_Project_1
 			Ilist=pro.reader(args[0]);
 
 			foreach(var i in Ilist)
-			{	
+			{
 				if(!i.Cmd.EndsWith(":")){
 				assem.delDic[i.Cmd].DynamicInvoke(i);
 				}
@@ -64,7 +77,7 @@ namespace _365_Project_1
 						}else{
 							Instruction inter= new Instruction();
 							inter.Line=line;
-							string[] words = line.Split(delims,StringSplitOptions.RemoveEmptyEntries);	
+							string[] words = line.Split(delims,StringSplitOptions.RemoveEmptyEntries);
 							lab="";
 							if(words.Length>1){
 								lab=words[1];
