@@ -74,13 +74,17 @@ partial class Assembler
 
 		using (BinaryWriter bw = new BinaryWriter(File.Open("Output.asm", FileMode.Create)))
 		{
+			uint val;
 			//TODO figure out which line needs to be used "because endian could switch the order"
-			bw.Write(0xfeedbeef);
+			bw.Write(0xbeeffeed);
 			//bw.Write(0xefbeedfe); Likely not needed
 
 			//Iterate through the list of interfaces and write the encoded value
 			foreach(Instruction item in ins)
-			{bw.Write(item.Encoded);}
+			{
+				val = ((item.Encoded & 0xff00ff00) >> 8) | ((item.Encoded & 0x00ff00ff) << 8);
+				bw.Write(val);
+			}
 		}
 
 	}

@@ -31,7 +31,7 @@ namespace _365_Project_1
 			string test = "swap info";
 			Program pro=new Program();
 
-			if(args.Length<2)
+			if(args.Length<1)
 			{
 				Console.WriteLine("Give file and a file name to write to as an arg");
 				return;
@@ -43,11 +43,13 @@ namespace _365_Project_1
 			//set i.Encoded for each i in Ilist
 			foreach(var i in Ilist)
 			{
-				if(!i.Cmd.EndsWith(":")){
+				//if(!i.Cmd.EndsWith(":")){
 					assem.delDic[i.Cmd].DynamicInvoke(i);
-				}
+				//}
 			}
+			assem.Writer(Ilist);
 
+			/*
 			//Write out the Encoded of each instruction
 					using (System.IO.BinaryWriter file =
 							new System.IO.BinaryWriter(File.OpenWrite(args[1])))
@@ -55,7 +57,7 @@ namespace _365_Project_1
 						Ilist.ForEach(o=>{
 								file.Write(o.Encoded);
 								});
-					}
+					}*/
 
 		}
 
@@ -91,7 +93,7 @@ namespace _365_Project_1
 			if(File.Exists(file)){
 				using (var read=new StreamReader(File.OpenRead(file))){
 					while((line=read.ReadLine())!=null){
-						if(line.StartsWith("//")||line==string.Empty||line.StartsWith("#")){
+						if(line.StartsWith("//")||line==string.Empty||line.StartsWith("#") || line.EndsWith(":")){
 							//skip; ignore python and c-style commenting
 						}else{
 							Instruction inter= new Instruction();
