@@ -30,22 +30,29 @@ namespace _365_Project_1
 			string cmd = "swap";
 			string test = "swap info";
 			Program pro=new Program();
+
 			if(args.Length==0)
 			{
 				Console.WriteLine("Give file as an arg");
 				return;
 			}
 
+			//Read the file and put the instructions in Ilist
 			Ilist=pro.reader(args[0]);
 
+			//set i.Encoded for each i in Ilist
 			foreach(var i in Ilist)
 			{
 				if(!i.Cmd.EndsWith(":")){
-				assem.delDic[i.Cmd].DynamicInvoke(i);
+					assem.delDic[i.Cmd].DynamicInvoke(i);
 				}
 			}
 
+			//Write out the Encoded of each instruction
+
 		}
+
+		//method for reading the file into a list of instructions
 		public List<Instruction> reader(string file){
 			string line,label,line1,lab;
 			uint addr=0;
@@ -53,11 +60,13 @@ namespace _365_Project_1
 			List<Instruction>Ilist=new List<Instruction>();
 			Dictionary<string,Label> dic=new Dictionary<string,Label>();;
 
+			//first pass through the file
+			//find all labels and their addresses and fill dic
 			if(File.Exists(file)){
 				using (var read1=new StreamReader(File.OpenRead(file))){
 					while((line1=read1.ReadLine())!=null){
 						if(line1.StartsWith("//")||line1==string.Empty||line1.StartsWith("#")){
-
+							//skip; ignore python and c-style commenting
 						}else if(line1.EndsWith(":")){
 							Label la=new Label();
 							la.labelName=line1;
@@ -69,14 +78,20 @@ namespace _365_Project_1
 					}
 				}
 			}
+
+			//second pass through the file
+			//get all instructions
 			if(File.Exists(file)){
 				using (var read=new StreamReader(File.OpenRead(file))){
 					while((line=read.ReadLine())!=null){
 						if(line.StartsWith("//")||line==string.Empty||line.StartsWith("#")){
-							//skip
+							//skip; ignore python and c-style commenting
 						}else{
 							Instruction inter= new Instruction();
 							inter.Line=line;
+
+							//check to see if the second arg is a label
+							//if it is, set inter.Val accordingly
 							string[] words = line.Split(delims,StringSplitOptions.RemoveEmptyEntries);
 							lab="";
 							if(words.Length>1){
@@ -86,9 +101,9 @@ namespace _365_Project_1
 							if(dic.ContainsKey(lab)){
 								inter.Val=dic[lab].Addr;
 							}
+
 							Ilist.Add(inter);
 						}
-
 					}
 				}
 			}
