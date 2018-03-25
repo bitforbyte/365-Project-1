@@ -32,23 +32,24 @@ namespace _365_Project_1
 
 		}
 		public List<Instruction> reader(string file){
-			string line,label;
+			string line,label,line1,lab;
 			uint addr=0;
+			string[] delims = {" ","\t"};
 			List<Instruction>Ilist=new List<Instruction>();
-			Dictionary<string,Label> dic=new Dictionary<Label,string>();;
+			Dictionary<string,Label> dic=new Dictionary<string,Label>();;
 
 			if(File.Exists(file)){
-				using (var read=new StreamReader(File.OpenRead(file))){
-					while((line=read.ReadLine())!=null){
-						if(line.StartsWith("//")||line==string.Empty||line.StartsWith("#")){
+				using (var read1=new StreamReader(File.OpenRead(file))){
+					while((line1=read1.ReadLine())!=null){
+						if(line1.StartsWith("//")||line1==string.Empty||line1.StartsWith("#")){
 
-						}else if(line.EndsWith(":")){
+						}else if(line1.EndsWith(":")){
 							Label la=new Label();
-							la.labelName=line;
+							la.labelName=line1;
 							la.Addr=addr;
-							dic.Add(line,la);
-							Console.WriteLine(line);
-							Console.WriteLine(addr);
+							dic.Add(line1,la);
+						//	Console.WriteLine(line);
+						//	Console.WriteLine(addr);
 						}else{
 							addr+=4;
 						}
@@ -63,9 +64,19 @@ namespace _365_Project_1
 						}else{
 							Instruction inter= new Instruction();
 							inter.Line=line;
-						/*	if(dic.ContainsKey()){
-								///set value here
-							}*/
+						//	Console.WriteLine(inter.Cmd);
+							string[] words = line.Split(delims,StringSplitOptions.RemoveEmptyEntries);	
+							lab="";
+						//	Console.WriteLine(words[0]);
+							if(words.Length>1){
+								lab=words[1];
+								lab.Trim();
+								lab+=":";
+							}
+					//		Console.WriteLine(lab);
+							if(dic.ContainsKey(lab)){
+								Console.WriteLine(lab);
+							}
 							Ilist.Add(inter);
 						//	Console.WriteLine(inter.Val);
 						}

@@ -38,8 +38,13 @@ public class Instruction : IInstruction
 			mLine = value.ToLower();
 
 			//set Cmd
-			char[] delims = {' '};
+		//	Console.WriteLine(mLine);
+			mLine.Trim();
+		//	Console.WriteLine(mLine);
+
+			string[] delims = {" ","\t"};
 			string[] words = mLine.Split(delims,StringSplitOptions.RemoveEmptyEntries);
+		//	Console.WriteLine(words.Length);
 			mCmd = words[0];
 
 			//set Val
