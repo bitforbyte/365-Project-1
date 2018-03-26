@@ -83,4 +83,12 @@ public class Instruction : IInstruction
 		get { return mEncoded; }
 		set { mEncoded = value; }
 	}
+
+	//Address
+	public uint mAddress;
+	public uint Address
+	{
+		get { return mAddress; }
+		set { mAddress = value; }
+	}
 }

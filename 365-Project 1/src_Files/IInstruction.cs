@@ -26,4 +26,7 @@ public interface IInstruction
 
 	//the bytecode to be output
 	uint Encoded {get; set;}
+
+	//Address
+	uint Address {get; set;}
 }

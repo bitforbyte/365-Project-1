@@ -43,7 +43,7 @@ namespace _365_Project_1
 			{
 				assem.delDic[i.Cmd].DynamicInvoke(i);
 			}
-			
+
 			//Write to the writer to make the file and write the instructions to it
 			assem.Writer(args[0], Ilist);
 
@@ -79,6 +79,7 @@ namespace _365_Project_1
 
 			//second pass through the file
 			//get all instructions
+			addr=0;
 			if(File.Exists(file)){
 				using (var read=new StreamReader(File.OpenRead(file))){
 					while((line=read.ReadLine())!=null){
@@ -87,6 +88,7 @@ namespace _365_Project_1
 						}else{
 							Instruction inter= new Instruction();
 							inter.Line=line;
+							inter.Address = addr;
 
 							//check to see if the second arg is a label
 							//if it is, set inter.Val accordingly
@@ -99,6 +101,9 @@ namespace _365_Project_1
 							if(dic.ContainsKey(lab)){
 								inter.Val=dic[lab].Addr;
 							}
+
+							if(!line.EndsWith(":"))
+								addr+=4;
 
 							Ilist.Add(inter);
 						}

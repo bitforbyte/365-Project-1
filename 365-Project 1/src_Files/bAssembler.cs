@@ -40,9 +40,9 @@ partial class Assembler
 	//==
 	void Ifeq(Instruction i)
 	{
-		i.Encoded = (uint) 8 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 8 << 28;
 		i.Encoded |= (uint) 0 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks left and right from stack
@@ -52,9 +52,9 @@ partial class Assembler
 	//!=
 	void Ifne(Instruction i)
 	{
-		i.Encoded = (uint) 8 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 8 << 28;
 		i.Encoded |= (uint) 1 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks left and right from stack
@@ -64,9 +64,9 @@ partial class Assembler
 	//<
 	void Iflt(Instruction i)
 	{
-		i.Encoded = (uint) 8 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 8 << 28;
 		i.Encoded |= (uint) 2 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks left and right from stack
@@ -76,9 +76,9 @@ partial class Assembler
 	//>
 	void Ifgt(Instruction i)
 	{
-		i.Encoded = (uint) 8 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 8 << 28;
 		i.Encoded |= (uint) 3 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks left and right from stack
@@ -88,9 +88,9 @@ partial class Assembler
 	//<=
 	void Ifle(Instruction i)
 	{
-		i.Encoded = (uint) 8 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 8 << 28;
 		i.Encoded |= (uint) 4 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks left and right from stack
@@ -100,9 +100,9 @@ partial class Assembler
 	//>=
 	void Ifge(Instruction i)
 	{
-		i.Encoded = (uint) 8 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 8 << 28;
 		i.Encoded |= (uint) 5 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks value from stack
@@ -112,9 +112,9 @@ partial class Assembler
 	//==0
 	void Ifez(Instruction i)
 	{
-		i.Encoded = (uint) 9 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 9 << 28;
 		i.Encoded |= (uint) 0 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks value from stack
@@ -124,9 +124,9 @@ partial class Assembler
 	//!=0
 	void Ifnz(Instruction i)
 	{
-		i.Encoded = (uint) 9 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 9 << 28;
 		i.Encoded |= (uint) 1 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks value from stack
@@ -136,9 +136,9 @@ partial class Assembler
 	//<0
 	void Ifmi(Instruction i)
 	{
-		i.Encoded = (uint) 9 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 9 << 28;
 		i.Encoded |= (uint) 2 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks value from stack
@@ -148,9 +148,9 @@ partial class Assembler
 	//>=0
 	void Ifpl(Instruction i)
 	{
-		i.Encoded = (uint) 9 << 28;
+		i.Encoded = (i.Val - i.Address) & 0x00ffffff;
+		i.Encoded |= (uint) 9 << 28;
 		i.Encoded |= (uint) 3 << 24;
-		i.Encoded |= i.Val;
 	}
 
 	//Peeks x = *(sp+offset)
