@@ -188,7 +188,7 @@ partial class Assembler
 	//1111 ValueToPush
 	void Push(Instruction i)
 	{
-		i.Encoded = (uint) 15 << 28;
-		i.Encoded |= i.Val;
+		i.Encoded = i.Val & 0x0fffffff;
+		i.Encoded |= (uint) 15 << 28;
 	}
 }
