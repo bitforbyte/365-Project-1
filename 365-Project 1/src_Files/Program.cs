@@ -7,8 +7,8 @@
  *
  *   Program.cs
  *
- *   DESCRIPTION
- *	  This project is to 
+ *   The Entry point for this program
+ *
  *************************************************/
 
 using System;
@@ -52,7 +52,7 @@ namespace _365_Project_1
 
 		//method for reading the file into a list of instructions
 		public List<Instruction> reader(string file){
-			string line,label,line1,lab;
+			string line,line1,lab;
 			uint addr=0;
 			string[] delims = {" ","\t"};
 			List<Instruction>Ilist=new List<Instruction>();
