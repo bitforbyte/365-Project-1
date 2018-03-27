@@ -203,14 +203,18 @@ partial class Assembler
 			uint val;
 
 			//Write the header for the .bin file (required for every .bin file)
-			bw.Write(0xbeeffeed);
+			//bw.Write(0xbeeffeed); // for the hexdump
+			bw.Write(0xefbeedfe); //for the virtual machine
 
 			//Iterate through the list of interfaces and write the encoded value
 			foreach(Instruction item in ins)
 			{
-				//Shift the values to put into correct order
-				val = ((item.Encoded & 0xff00ff00) >> 8) | ((item.Encoded & 0x00ff00ff) << 8);
-				bw.Write(val);
+				//Shift the values to put into correct order for the hexdump
+				//val = ((item.Encoded & 0xff00ff00) >> 8) | ((item.Encoded & 0x00ff00ff) << 8);
+				//bw.Write(val);
+				
+				//This gives the correct virtual machine
+				bw.Write(item.Encoded);
 			}
 		}
 
