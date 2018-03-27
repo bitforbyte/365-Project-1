@@ -36,7 +36,7 @@ namespace _365_Project_1
 				Console.WriteLine("Give file and a file name to write to as an arg");
 				return;
 			}
-
+			
 			//Call Assembler to assemble the .bin file
 			asm.Assemble(args[0]);
 

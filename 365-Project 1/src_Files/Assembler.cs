@@ -66,11 +66,18 @@ partial class Assembler
 	}
 
 
-	//Assembler
+	//Assemble The code by calling other functions
 	public void Assemble(string filename)
 	{
 		List<Instruction>Ilist;
 		Assembler assem = new Assembler();
+		
+		//Check to see if the file exists
+		if (!File.Exists(filename))
+		{
+			Console.WriteLine("The file '{0}' doesn't exist.", filename);
+			return;
+		}
 
 		//Read the file and put the instructions in Ilist
 		Ilist= reader(filename);
