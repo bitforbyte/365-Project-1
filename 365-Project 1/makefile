@@ -8,7 +8,7 @@ FLAGS =-out:$(EXECUTABLE)
 SRC_FILES = $(wildcard src_Files/*.cs)
 
 #Executable name
-EXECUTABLE =Test.exe
+EXECUTABLE = Assembler.exe
 
 #Run everything if neccasry
 all: $(EXECUTABLE)
