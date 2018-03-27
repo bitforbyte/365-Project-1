@@ -7,7 +7,7 @@
  *
  *   kAssembler.cs
  *
- *   Partial Class for Brent's Functions:
+ *   Partial Class for Kendall's Functions:
  *   Exit()
  *   Swap()
  *   Inpt()

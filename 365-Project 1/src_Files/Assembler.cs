@@ -20,17 +20,15 @@ using _365_Project_1;
 
 partial class Assembler
 {
-	//protected List<int> lLoc;
 
 	//Delegate for each of the functions
 	protected delegate void del(Instruction i);
-//	public delegate void del1(ref Instruction i);
 
 	//Dictionary keyed on command string and value is the approiate funciton
 	public Dictionary<string, Delegate> delDic;
 	public Assembler()
 	{
-		//Assign the functions
+		//Assign the functions to the dictionary
 		delDic = new Dictionary<string, Delegate>()
 		{
 			{"exit", new del(Exit)},
@@ -203,17 +201,12 @@ partial class Assembler
 			uint val;
 
 			//Write the header for the .bin file (required for every .bin file)
-			//bw.Write(0xbeeffeed); // for the hexdump
 			bw.Write(0xefbeedfe); //for the virtual machine
 
 			//Iterate through the list of interfaces and write the encoded value
 			foreach(Instruction item in ins)
 			{
-				//Shift the values to put into correct order for the hexdump
-				//val = ((item.Encoded & 0xff00ff00) >> 8) | ((item.Encoded & 0x00ff00ff) << 8);
-				//bw.Write(val);
-				
-				//This gives the correct virtual machine
+				//This gives the encoded value for the virtual machine
 				bw.Write(item.Encoded);
 			}
 		}
