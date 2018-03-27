@@ -7,10 +7,10 @@
  *
  *   Program.cs
  *
- *   DESCRIPTION
- *	  This project is to work as a basic assembler
- *	  by taking an .asm file and generate binary code
- *	  .bin file that will work on virtual machines
+ *	 This project is to work as a basic assembler
+ *	 by taking a .asm file and generate binary code
+ *	 .bin file that will work on virtual machines
+ *
  *************************************************/
 
 using System;

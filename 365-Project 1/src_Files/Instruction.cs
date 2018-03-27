@@ -57,7 +57,7 @@ public class Instruction : IInstruction
 			{
 				string s = words[1];
 
-				//number
+				//hex or decimal number
 				try
 				{
 					//hex

@@ -68,7 +68,7 @@ partial class Assembler
 
 	//Assembler
 	public void Assemble(string filename)
-	{	
+	{
 		List<Instruction>Ilist;
 		Assembler assem = new Assembler();
 
@@ -82,13 +82,11 @@ partial class Assembler
 			{
 				//Call the approiate function that will encode the value
 				assem.delDic[i.Cmd].DynamicInvoke(i);
-
 			}
 			catch
 			{
 				Console.WriteLine("'{0}' is not an instruction Exiting...", i.Cmd);
 			}
-
 		}
 
 		//Write to the writer to make the file and write the instructions to it
@@ -175,11 +173,11 @@ partial class Assembler
 		//Remove // comments at the end of the line
 		if (line.Contains("//"))
 			line = Regex.Replace(line, cLineComments, "");
-		
+
 		//Remove # comments from the end of the line
 		if (line.Contains("#"))
-			line = Regex.Replace(line, pLineComments, "");	
-			
+			line = Regex.Replace(line, pLineComments, "");
+
 		//Remove the inline /* */ comments
 		if (line.Contains("/*"))
 			line = Regex.Replace(line, blockComments, "");
@@ -194,12 +192,10 @@ partial class Assembler
 	{
 		//Change the path name of the file to be .bin
 		var fileName = Path.ChangeExtension(file, ".bin");
-		
+
 		//if (Test.RegularExpressions.Regex.IsMatch(fileName, "\\."))
 		using (BinaryWriter bw = new BinaryWriter(File.Open(fileName,FileMode.Create)))
 		{
-			uint val;
-
 			//Write the header for the .bin file (required for every .bin file)
 			bw.Write(0xefbeedfe); //for the virtual machine
 
